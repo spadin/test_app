@@ -1,0 +1,21 @@
+<%= form_for @gallery, html: { multipart: true } do |gallery_form| %>
+  <%= gallery_form.label :name %>
+  <%= gallery_form.text_field :name %>
+
+  <br/>
+
+  <%= file_field_tag "images[]", multiple: true %>
+
+  <br/>
+
+  <%= gallery_form.submit :submit %>
+<% end %>
+
+<% if @galleries.present? %>
+  <h1>Available galleries</h1>
+  <ul>
+    <% @galleries.each do |gallery| %>
+      <li><%= link_to gallery.name, gallery_path(gallery) %></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,0 +1,5 @@
+<h1><%= @gallery.name %></h1>
+
+<% @gallery.images.each do |image| %>
+  <%= image_tag image.image.url(:thumb) %>
+<% end %>
